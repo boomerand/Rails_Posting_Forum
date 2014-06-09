@@ -1,0 +1,82 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form{
+	width:48%;
+	display:inline-block;
+	vertical-align:top;
+}
+input:not([type="submit"]){
+	display:block;
+	width:70%;
+	padding:5px;
+	margin-bottom:20px;
+}
+.success-msg {
+	color:green;
+	line-height:18px;
+}
+.error-msg {
+	color:red;
+	line-height:21px;
+	font-size:13px;
+}
+.logout {
+	float:right;
+	line-height:30px;
+	text-align:right;
+	font-weight:500;
+	font-size:13px;
+}
+.logout a:link, .logout a:visited{
+	color:#177692;
+	text-decoration:none;
+}
+.logout a:hover, .logout a:focus{
+	text-decoration:underline;
+}
+.post {
+	font-size:14px;
+	line-height:21px;
+	margin:3px 0 15px;
+}
+#container {
+	width:75%;
+	margin:50px auto;
+	padding:30px;
+	border-radius:12px;
+	background-color: white;
+}
+#left{
+	padding-right:20px;
+}
+#post-form {
+	width:100%;
+	clear:both;
+}
+#post-form textarea{
+	width:99%;
+	height:100px;
+	padding:5px;
+	margin-bottom:10px;
+}
+#post-form input[type="submit"], #comments input[type="submit"]{
+	float:right;
+	margin-bottom:10px;
+}
+#posts{
+	clear:both;
+	margin-top:35px;
+}
+#comments{
+	width:90%;
+	margin:0 auto;
+	margin-bottom:30px;
+}
+#comments textarea{
+	width:99%;
+	height:50px;
+	padding:5px;
+	margin-bottom:10px;
+}

@@ -1,0 +1,40 @@
+<div id="container">
+	<div id="welcome-header">
+		<h2>Welcome, <%= @user.first_name %>!</h2>
+		<p class="logout pull-right"><a data-method="delete" href="<%= session_path(session) %>">Log out</a></p>
+	</div>
+
+	<div id="post-form">
+		<h3>Post a message</h3>
+		<%= form_for(@post, url:{ controller: 'walls', action: 'post'}) do |f| %>
+			<%= f.text_area :comment, :placeholder => 'Enter post..' %>
+			<%= f.submit "Post message!" %>
+		<% end %>
+	</div>
+
+	<div id="posts">
+		<% if @posts %>
+			<% @posts.each do |post| %>
+			<h4><%= post.user.first_name + " " + post.user.last_name %> - <%= post.created_at.strftime('%b %d, %Y') %></h4>
+			<p class="post"><%= post.comment %></p>
+			<div id="comments">
+				<% if @comments %>
+					<% @comments.each do |comment| %>
+						<% if comment.post_id == post.id %>
+							<h5><%= comment.user.first_name + " " + comment.user.last_name %> - <%comment.created_at.strftime('%b %d, %Y') %></h5>				
+							<p class="post"><%= comment.comment %></p>
+						<% end %>
+					<% end %>
+				<% end %>
+				
+				<%= form_for(@comment, url:{ controller: 'walls', action: 'comment' }) do |f| %>
+					<%= f.hidden_field :post_id, :value => post.id %> 
+					<%= f.text_area :comment, :placeholder => 'Enter comment..' %>
+					<%= f.submit "Post comment!" %>
+				<% end %>
+			</div>
+			<% end %>
+		<% end %>	
+	</div>
+
+</div>
